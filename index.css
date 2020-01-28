@@ -54,6 +54,26 @@
     .prob_close{
         display: none;
     }
+    .left{
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    .right{
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 10px;
+    }
+    .left,.right{
+        flex-grow: 1;
+        height: 20px;
+        margin: 1vh 0.5vh 1vh 0.1vh;
+        
+        width:40px;
+    }
+    .values{
+        height: 60vh;
+        width:20vw;
+    }
 }
 
 @media all and (max-width: 719px){
@@ -73,12 +93,19 @@
     }
     .main_heading{
         position: fixed !important;
-        top: 0;
+        top: 10vh;
         left: 0;
         right: 0;
         z-index: -1;
         width: 100vw;
         height: auto;
+    }
+    .iterations{
+        position: fixed !important;
+        top: 8vh;
+        left: 0;
+        right: 0;
+        z-index: -1;
     }
     .controls{
         width: 80vw;
@@ -109,21 +136,21 @@
     #overlay{
         position: relative;
         height:70vh;
-        width: 80vw;
+        width: 90vw;
         margin-top: 1vh;
         
     }
     #canvas-wrap{
         height: 70vh;
-        width: 80vw;
+        width: 90vw;
         margin-top: 30vh;
     }
     .up{
         font-size: 3em;
     }
     .controls_cont{
-        margin-top: 10vh;
-        height: 85vh;
+        margin-top: 15vh;
+        height: 75vh;
         position: relative;;
     }
     .prob_close{
@@ -132,11 +159,40 @@
         right: 15vw !important;
         
     }
+    .left{
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    .right{
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        font-size: 10px;
+    }
+    .left,.right{
+        flex-grow: 1;
+        height: 30px;
+        margin: 1vh 0.5vh 1vh 0.1vh;
+        
+        width:50px;
+    }
+    .values{
+        height: 60vh;
+        width:40vw;
+    }
 }
 
 
 
-
+.iterations{
+    height:2vh;
+    width:auto;
+    text-align: center;
+}
+#val{
+    margin-top: 0.5vh;
+    font-weight: 900;
+    font-size: 2em;
+}
 .probab{
     
     border-radius: 2px;
@@ -151,8 +207,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 60vh;
-    width:20vw;
+    
     margin-top: 4vh;
     overflow:hidden ;
     flex-direction: column;

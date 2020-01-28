@@ -18,6 +18,19 @@
     padding: 1vh;
     margin-top: 6vh;
 }
+.left{
+    
+    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+.right{
+    
+    padding: 0px;
+    font-weight: bolder;
+}
 </style>
 </head>
 <body>
@@ -38,7 +51,7 @@
                 YOU CAN CHOOSE BETWEEN DIFFERENT SPEEDS OF ANIMATION, IRREGULAR OR REGULAR POLYGON AMONG THE ABOVE MENTIONED VALUES.
                 <br><br>
                 YOU CAN ALSO DYNAMICALLY CHANGE 'R' AND PROBABILITIES WHILE RUNNING THE ANIMATION<br><br>
-                IF YOU'RE STILL CONFUSED REFER TO <a href="https://www.youtube.com/watch?v=kbKtFN71Lfs"> THIS</a> YOUTUBE VIDEO.<br><br>
+                IF YOU'RE STILL CONFUSED REFER TO <a href="https://www.youtube.com/watch?v=kbKtFN71Lfs" style="text-decoration: underline;"> THIS</a> YOUTUBE VIDEO.<br><br>
                 NOW SIT BACK AND WATCH THE BEAUTIFUL PATTERNS UNFOLD ON YOUR SCREEN AND DON'T FORGET TO FIDDLE AROUND WITH THE VALUES.<br>
             </div>
             <span class="closebtn" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
@@ -52,11 +65,11 @@
             <div class="controls" >
                 <div style="display: flex;">
                     <div class="left">N</div>  
-                    <input id="num_dots" class="right"type="number"  value="3" onfocus="prob()" onchange="prob();stop();isRegular()">
+                    <input id="num_dots" class="right"type="number"  value="3" onfocus="prob()" onchange="check_n();prob();stop();isRegular()">
                 </div>
                 <div style="display: flex;">
                     <div class="left">R</div>   
-                    <input id="r" type="number" class="right"value="0.5" onchange="r_value()">
+                    <input id="r" type="number" class="right"value="0.5" onchange="check_r();r_value()">
                 </div>
                 <div style="display:flex;">
                     <div class="button shape" id="irregular" onclick="irregular()">
@@ -81,7 +94,7 @@
                         <a href="#canvas-wrap">START</a>
                     </div>
                     <div class="button start" onclick="stop()">
-                        STOP
+                        <a >STOP</a>
                     </div>
                 </div>
                 
@@ -93,7 +106,10 @@
                 CHAOS GAME
            </div>
            <div style="display: flex;align-items: center;justify-content: center;">
-                <a href="#control"><span class="up">&#8743;</span></a>
+                <a href="#val" onclick="scrollWin()"><span class="up">&#8743;</span></a>
+           </div>
+           <div class="iterations">
+               ITERATIONS <div id="val">0</div>
            </div>
             <div id="overlay"></div>
         </div>

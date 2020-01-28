@@ -7,6 +7,7 @@ let overlay=document.getElementById('overlay')
 let count=0
 let prob_val=[]
 let angle=[]
+let iteration=1
 let r=document.getElementById('r').value
 function isRegular(){
     var shape=document.getElementsByClassName('shape')[0].style.backgroundColor
@@ -15,6 +16,36 @@ function isRegular(){
     }
     else{
         regular()
+    }
+}
+function scrollWin() {
+    window.scrollTo(0, 0);
+  }
+function check_n(){
+    var n=document.getElementById('num_dots').value
+    if(n<3||!Number.isInteger(n)){
+        alert('N should be an Integer and it should be greater than or equals to 3')
+        document.getElementById('num_dots').value=3
+    }
+}
+function check_r(){
+    var r=document.getElementById('r').value
+    if(r<=0){
+        alert('R should be greater than 0')
+        document.getElementById('r').value=0.5
+    }
+}
+function check_prob(){
+    var length=document.getElementsByClassName('prob_values').length
+    
+    
+    for(var i=0;i<length;i++){
+        var val=document.getElementsByClassName('prob_values')[i].value
+        if(val>1||val<0){
+            alert('Probabilities should be between 0 and 1')
+            document.getElementsByClassName('prob_values')[i].value=1.0
+        }
+        
     }
 }
 function prob_show(){
@@ -57,7 +88,7 @@ function start(){
 
         overlay.appendChild(div)
         overlay.appendChild(div_num)
-
+        iteration=1
         var new_div=document.getElementsByClassName('dots')[i-1]
         //console.log(x_new)-0.5
         //console.log(y_new)
@@ -74,6 +105,7 @@ function start(){
         var small_div=document.createElement('div')
         small_div.setAttribute('class','small_dot')
         overlay.appendChild(small_div)
+        iteration++
         document.getElementsByClassName('small_dot')[0].style.border='7px solid white'
         document.getElementsByClassName('small_dot')[0].style.left=random_left+'px'
         document.getElementsByClassName('small_dot')[0].style.top=random_top+'px'
@@ -83,8 +115,8 @@ function start(){
 }
 function game(){
     //console.log(speed_dots)
-    
-    
+    document.getElementById('val').innerHTML=iteration
+    iteration++
     //console.log(r)
     document.getElementsByClassName('small_dot')[document.getElementsByClassName('small_dot').length-1].style.border=''
     var len=Array.length
@@ -96,16 +128,16 @@ function game(){
     var left_big=document.getElementsByClassName('dots')[random].getBoundingClientRect().left-overlay.getBoundingClientRect().left
     var top_big=document.getElementsByClassName('dots')[random].getBoundingClientRect().top-overlay.getBoundingClientRect().top
     //console.log(left_dot+' '+top_dot+' '+left_big+' '+top_big)
-    var xi=Math.pow(left_dot-left_big,2)
-    var yi=Math.pow(top_dot-top_big,2)
+    var xi=Math.pow(left_dot-left_big+5,2)
+    var yi=Math.pow(top_dot-top_big+5,2)
     var distance=Math.sqrt(xi+yi)
     //console.log(distance)
     var distance_to_travel=distance*r
     //console.log(distance_to_travel)
-    var new_y=(Math.abs(top_big-top_dot)/distance)*distance_to_travel
-    var new_top=(Math.sign(top_big-top_dot)*new_y)+top_dot
-    var new_x=(Math.abs(left_big-left_dot)/distance)*distance_to_travel
-    var new_left=(Math.sign(left_big-left_dot)*new_x)+left_dot
+    var new_y=(Math.abs(top_big-top_dot+5)/distance)*distance_to_travel
+    var new_top=(Math.sign(top_big-top_dot+5)*new_y)+top_dot
+    var new_x=(Math.abs(left_big-left_dot+5)/distance)*distance_to_travel
+    var new_left=(Math.sign(left_big-left_dot+5)*new_x)+left_dot
     var small_div=document.createElement('div')
     small_div.setAttribute('class','small_dot')
     overlay.appendChild(small_div)
@@ -147,7 +179,7 @@ function prob(){
     cont.innerHTML=''
     for(var i=0;i<parseInt(num_dots);i++){
         var div=document.createElement('div')
-        div.innerHTML='<div class="left">('+(i+1)+')</div> <input class="right prob_values" type="number" onchange="prob_change()" value="1.0">'
+        div.innerHTML='<div class="left">('+(i+1)+')</div> <input class="right prob_values" type="number" onchange="check_prob();prob_change()" value="1.0">'
         cont.appendChild(div)
         prob_val.push(document.getElementsByClassName('prob_values')[i].value)
         

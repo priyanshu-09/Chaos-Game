@@ -23,10 +23,11 @@ function scrollWin() {
   }
 function check_n(){
     var n=document.getElementById('num_dots').value
-    if(n<3||!Number.isInteger(n)){
+    if(n<3||!Number.isInteger(Number(n))){
         alert('N should be an Integer and it should be greater than or equals to 3')
         document.getElementById('num_dots').value=3
     }
+    
 }
 function check_r(){
     var r=document.getElementById('r').value

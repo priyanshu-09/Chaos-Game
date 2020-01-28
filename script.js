@@ -7,7 +7,7 @@ let overlay=document.getElementById('overlay')
 let count=0
 let prob_val=[]
 let angle=[]
-let iteration=1
+let iteration=0
 let r=document.getElementById('r').value
 function isRegular(){
     var shape=document.getElementsByClassName('shape')[0].style.backgroundColor
@@ -89,7 +89,7 @@ function start(){
 
         overlay.appendChild(div)
         overlay.appendChild(div_num)
-        iteration=1
+        iteration=0
         var new_div=document.getElementsByClassName('dots')[i-1]
         //console.log(x_new)-0.5
         //console.log(y_new)
@@ -117,7 +117,7 @@ function start(){
 function game(){
     //console.log(speed_dots)
     document.getElementById('val').innerHTML=iteration
-    iteration++
+    
     //console.log(r)
     document.getElementsByClassName('small_dot')[document.getElementsByClassName('small_dot').length-1].style.border=''
     var len=Array.length
@@ -145,7 +145,9 @@ function game(){
     document.getElementsByClassName('small_dot')[document.getElementsByClassName('small_dot').length-1].style.border='7px solid white'
     document.getElementsByClassName('small_dot')[document.getElementsByClassName('small_dot').length-1].style.left=new_left+'px'
     document.getElementsByClassName('small_dot')[document.getElementsByClassName('small_dot').length-1].style.top=new_top+'px'
-    if(function_work){setTimeout(game,speed_dots)}
+    if(function_work){
+        iteration++;
+        setTimeout(game,speed_dots)}
 }
 function speed(inp){
     function_work=false

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <link href="index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="alert">
+        <div class="alert_box">
+            <div class="alert_text">
+                HELLO! WELCOME TO <b>THE CHAOS GAME</b>.<br><br>
+                FIRST OF ALL IF YOU'RE VIEWING THIS ON MOBILE, PLEASE SWITCH TO A PC OR JUST ENABLE THE DESKTOP SITE MODE ON YOUR BROWSER.<br><br>
+                HOW DOES IT WORK -:<BR>
+                <ol>
+                        <li>'N' IS THE NUMBER OF VERTICES OF THE POLYGON TO BE CREATED</li><br>
+                        <li>A RANDOM POINT WILL BE CREATED IN THE AREA WHICH WILL BE REPRESENTED BY A BIG WHITE DOT.</li><br>
+                        <li>A VERTEX OF THE POLYGON WILL BE CHOSEN RANDOMLY BASED ON THE PROBABILITIES MENTIONED OF EACH OF THE VERTEX. </li><br>
+                        <li>LET THERE BE SOME DISTANCE D BETWEEN THE RANDOM POINT AND THE CHOSEN VERTEX, MULTIPLY THIS DISTANCE BY 'R'</li><br>
+                        <li>TRAVEL 'R TIMES D' FROM THE RANDOM POINT IN THE DIRECTION OF THE CHOSEN VERTEX</li><br>
+                        <li>GO BACK TO THE THIRD POINT</li><br>
+                </ol>
+                <br>
+                YOU CAN CHOOSE BETWEEN DIFFERENT SPEEDS OF ANIMATION, IRREGULAR OR REGULAR POLYGON AMONG THE ABOVE MENTIONED VALUES.
+                <br><br>
+                YOU CAN ALSO DYNAMICALLY CHANGE 'R' AND PROBABILITIES WHILE RUNNING THE ANIMATION<br><br>
+                IF YOU'RE STILL CONFUSED REFER TO <a href="https://www.youtube.com/watch?v=kbKtFN71Lfs"> THIS</a> YOUTUBE VIDEO.<br><br>
+                NOW SIT BACK AND WATCH THE BEAUTIFUL PATTERNS UNFOLD ON YOUR SCREEN AND DON'T FORGET TO FIDDLE AROUND WITH THE VALUES.<br>
+            </div>
+            <span class="closebtn" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="controls_cont"style="display: flex;flex-direction: column; justify-content: center; " >
+            <div class="heading">
+                CONTROLS
+            </div>
+            <div class="controls">
+                <div style="display: flex;">
+                    <div class="left">N</div>  
+                    <input id="num_dots" class="right"type="number"  value="3" onfocus="prob()" onchange="prob();stop();isRegular()">
+                </div>
+                <div style="display: flex;">
+                    <div class="left">R</div>   
+                    <input id="r" type="number" class="right"value="0.5" onchange="r_value()">
+                </div>
+                <div style="display:flex;">
+                    <div class="button shape" id="irregular" onclick="irregular()">
+                        IRREGULAR
+                    </div>
+                    <div class="button shape" id="regular"onclick="regular()">
+                        REGULAR
+                    </div>
+                </div>
+                
+                
+                <div class="button_speed">
+                    <div class="speed button" onclick="speed(1000)">SLOW</div>
+                    <div class="speed button" onclick="speed(200)">MEDIUM</div>
+                    <div class="speed button" onclick="speed(1)">FAST</div>
+                </div>
+
+                <div style="display: flex;">
+                    <div id="start" class="button start" onclick="start()">
+                        START
+                    </div>
+                    <div class="button start" onclick="stop()">
+                        STOP
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>  
+        <div id="canvas-wrap">
+           <div class="heading main_heading">
+               CHAOS GAME
+           </div>
+            <div id="overlay"></div>
+        </div>
+        <div class="probab">
+            <div class="heading">
+                PROBABILITIES
+            </div>
+            <!-- <div style="font-size: 8px;">
+                ENTER THE VALUES BETWEEN 0 AND 1
+            </div> -->
+            <div class="values">
+                
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+    
+</body>

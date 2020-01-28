@@ -74,6 +74,9 @@
         height: 60vh;
         width:20vw;
     }
+    body{
+        overflow: hidden;
+    }
 }
 
 @media all and (max-width: 719px){
@@ -178,6 +181,9 @@
     .values{
         height: 60vh;
         width:40vw;
+    }
+    body{
+        overflow: auto;
     }
 }
 

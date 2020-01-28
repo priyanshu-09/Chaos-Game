@@ -3,15 +3,29 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link href="index.css" rel="stylesheet">
+    <link href="new.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Ubuntu&display=swap" rel="stylesheet">
+    <style>
+    .start{
+    border-radius: 4px;
+    font-weight: bolder;
+    font-size: 13px;
+    border: 0px;
+    border-bottom: 5px solid #240090;
+    border-left:3px solid transparent ;
+    border-right: 3px solid transparent;
+    border-top: 2px solid #240090;
+    padding: 1vh;
+    margin-top: 6vh;
+}
+</style>
 </head>
 <body>
-    <div class="alert">
+     <div class="alert">
         <div class="alert_box">
             <div class="alert_text">
                 HELLO! WELCOME TO <b>THE CHAOS GAME</b>.<br><br>
-                FIRST OF ALL IF YOU'RE VIEWING THIS ON MOBILE, PLEASE SWITCH TO A PC OR JUST ENABLE THE DESKTOP SITE MODE ON YOUR BROWSER.<br><br>
-                HOW DOES IT WORK -:<BR>
+                
                 <ol>
                         <li>'N' IS THE NUMBER OF VERTICES OF THE POLYGON TO BE CREATED</li><br>
                         <li>A RANDOM POINT WILL BE CREATED IN THE AREA WHICH WILL BE REPRESENTED BY A BIG WHITE DOT.</li><br>
@@ -29,13 +43,13 @@
             </div>
             <span class="closebtn" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
         </div>
-    </div>
+    </div> 
     <div class="wrapper">
-        <div class="controls_cont"style="display: flex;flex-direction: column; justify-content: center; " >
+        <div class="controls_cont" id="control"style="display: flex;flex-direction: column; justify-content: center; " >
             <div class="heading">
                 CONTROLS
             </div>
-            <div class="controls">
+            <div class="controls" >
                 <div style="display: flex;">
                     <div class="left">N</div>  
                     <input id="num_dots" class="right"type="number"  value="3" onfocus="prob()" onchange="prob();stop();isRegular()">
@@ -55,14 +69,16 @@
                 
                 
                 <div class="button_speed">
-                    <div class="speed button" onclick="speed(1000)">SLOW</div>
-                    <div class="speed button" onclick="speed(200)">MEDIUM</div>
-                    <div class="speed button" onclick="speed(1)">FAST</div>
+                    <div class="speed button" onclick="speed(1000)"><a href="#canvas-wrap">SLOW</a></div>
+                    <div class="speed button" onclick="speed(200)"><a href="#canvas-wrap">MEDIUM</a></div>
+                    <div class="speed button" onclick="speed(1)"><a href="#canvas-wrap">FAST</a></div>
                 </div>
-
+                <div class="prob_button">
+                    <div class="button" onclick="prob_show()">PROBABILITIES</div>
+                </div>
                 <div style="display: flex;">
-                    <div id="start" class="button start" onclick="start()">
-                        START
+                    <div id="start" class="button start" onclick="start()" style="text-decoration: none;">
+                        <a href="#canvas-wrap">START</a>
                     </div>
                     <div class="button start" onclick="stop()">
                         STOP
@@ -73,15 +89,23 @@
             
         </div>  
         <div id="canvas-wrap">
-           <div class="heading main_heading">
-               CHAOS GAME
+           <div class="heading main_heading" id="head">
+                CHAOS GAME
+           </div>
+           <div style="display: flex;align-items: center;justify-content: center;">
+                <a href="#control"><span class="up">&#8743;</span></a>
            </div>
             <div id="overlay"></div>
         </div>
         <div class="probab">
-            <div class="heading">
-                PROBABILITIES
+            <div style="justify-content: center;width: 100%;position: relative;align-items: center;">
+                <div class="heading">
+                    PROBABILITIES
+                    
+                </div>
+                <span class="closebtn prob_close" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
             </div>
+           
             <!-- <div style="font-size: 8px;">
                 ENTER THE VALUES BETWEEN 0 AND 1
             </div> -->

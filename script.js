@@ -17,6 +17,9 @@ function isRegular(){
         regular()
     }
 }
+function prob_show(){
+    document.getElementsByClassName('probab')[0].style.display='flex'
+}
 function r_value(){
     function_work=false
     r=document.getElementById('r').value
@@ -32,8 +35,8 @@ function start(){
     let width=overlay.getBoundingClientRect().width
     let height=overlay.getBoundingClientRect().height
     overlay.innerHTML=''
-	var radius_num=width/2-10
-	var radius=width/2-30;
+	var radius_num=height/2-80
+	var radius=height/2-100;
 	var x = width/2;
 	var y = height/2;
 	

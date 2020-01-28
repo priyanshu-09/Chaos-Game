@@ -1,0 +1,168 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: black;
+    align-items: center;
+    font-family: 'Ubuntu',sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 0.7em;
+    color: whitesmoke ;
+    background-image:       linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+    
+    background-size:12.5vh 12.5vh;
+}
+div{
+    background-color: transparent;
+}
+.alert{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    z-index: 20;
+
+    background-image:       linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+    
+    background-size:12.5vh 12.5vh;
+
+}
+.alert_text{
+    min-width: 60vw;
+    min-height: 50vh;
+    font-weight: lighter;
+    padding: 3vh;
+    text-align: center;
+    font-family: 'Ubuntu',sans-serif;
+    letter-spacing: 1px;
+    font-size: 1em;
+    
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+ol{
+    text-align: left;
+}
+.alert_box{
+    
+    min-height: 50vh;
+    height: auto;
+    width: 70vw;
+    border-radius: 10px;
+    background-color: #0C0032;
+    display: flex;
+}
+.closebtn {
+    
+    margin-left: 15px;
+    right:5px;
+    top: 5px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+.heading{
+    font-size: 15px;
+    margin-top:6vh;
+    position:relative;
+    height: 10vh;
+    top: 0;
+    text-align: center;
+}
+.main_heading{
+    font-size: 40px;
+    font-weight: bolder;
+    margin-top: 0;
+    
+
+}
+.wrapper{
+    display: flex;
+    
+    align-items: center;
+}
+.wrapper>div{
+    
+    border-radius: 10px;
+}
+.controls{
+    
+    border-radius: 2px;
+    
+    
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+.left,.right{
+    flex-grow: 1;
+    height: 20px;
+    margin: 1vh 0.5vh 1vh 0.1vh;
+    
+    width:40px;
+    background-color: #240090;
+    border: 2px solid #240090;
+    text-align: center;
+    
+    color: white;
+}
+.left{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+.right{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 10px;
+    padding: 0px;
+    font-weight: bolder;
+}
+.right:hover{
+    background-color:#0C0032 ;
+}
+.button_speed{
+    display: flex;
+}
+.button{
+    background-color:transparent;
+    border-radius: 10px;
+    height: 3.5vh;
+    
+    width: auto;
+    
+    align-items: center;
+    text-align: center;
+    border: 3px solid #240090;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.button:hover{
+    background-color:#240090;
+    border: 3px solid #240090;
+}

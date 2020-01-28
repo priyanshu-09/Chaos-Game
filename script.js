@@ -32,8 +32,8 @@ function start(){
     let width=overlay.getBoundingClientRect().width
     let height=overlay.getBoundingClientRect().height
     overlay.innerHTML=''
-	var radius_num=height/2-10
-	var radius=height/2-30;
+	var radius_num=width/2-10
+	var radius=width/2-30;
 	var x = width/2;
 	var y = height/2;
 	

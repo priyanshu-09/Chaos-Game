@@ -4,6 +4,7 @@ document.getElementsByClassName('speed')[1].style.backgroundColor='#240090'
 let Array=[]
 let function_work=true
 let overlay=document.getElementById('overlay')
+let canvas_wrap=document.getElementById('canvas-wrap')
 let count=0
 let prob_val=[]
 let angle=[]
@@ -51,6 +52,12 @@ function check_prob(){
 }
 function prob_show(){
     document.getElementsByClassName('probab')[0].style.display='flex'
+    document.getElementsByClassName("controls_cont")[0].style.display='none'
+    document.getElementById('overlay').style.display='none'
+}
+function prob_closed(){
+    document.getElementsByClassName("controls_cont")[0].style.display=''
+    document.getElementById('overlay').style.display=''
 }
 function r_value(){
     function_work=false
@@ -58,22 +65,31 @@ function r_value(){
     function_work=true
     setTimeout(game,speed_dots)
 }
+ 
 function start(){
     let num_dots=document.getElementById('num_dots').value
     Array=[]
     
     count++
     function_work=true
-    let width=overlay.getBoundingClientRect().width
-    let height=overlay.getBoundingClientRect().height
+    let width=canvas_wrap.getBoundingClientRect().width
+    let height=canvas_wrap.getBoundingClientRect().height
     overlay.innerHTML=''
-	var radius_num=height/2-80
-	var radius=height/2-100;
-	var x = width/2;
-	var y = height/2;
+    if(screen.width>720){
+        var radius_num=height/2-80
+	    var radius=height/2-100;
+    }
+    else{
+        var radius_num=width/2-80
+	    var radius=width/2-100;
+    }
+    console.log(radius)
 	
-	console.log('hi')
-	console.log(count)
+	var x = overlay.getBoundingClientRect().width/2;
+	var y = overlay.getBoundingClientRect().height/2;
+	
+//	console.log('hi')
+//	console.log(count)
  	for (var i = 0; i < num_dots; i++) {
         var x_new=x - radius*Math.cos((i * angle[i])+(Math.PI/2))    
         var y_new=y - radius*Math.sin((i * angle[i])+(Math.PI/2))
@@ -122,7 +138,7 @@ function game(){
     document.getElementsByClassName('small_dot')[document.getElementsByClassName('small_dot').length-1].style.border=''
     var len=Array.length
     var random=prob_values()
-    console.log(prob_val)
+ //   console.log(prob_val)
     //console.log(random)
     var left_dot=document.getElementsByClassName('small_dot')[document.getElementsByClassName('small_dot').length-1].getBoundingClientRect().left-overlay.getBoundingClientRect().left
     var top_dot=document.getElementsByClassName('small_dot')[document.getElementsByClassName('small_dot').length-1].getBoundingClientRect().top-overlay.getBoundingClientRect().top
@@ -198,10 +214,13 @@ function prob_values(){
     }
     var random=Math.random()*total
     //console.log(random)
-    
+ //   console.log(prob_val)
     for(var i=0;i<length;i++){
-        weighted_sum=weighted_sum+parseInt(prob_val[i])
-        //console.log(weighted_sum)
+        weighted_sum=weighted_sum+Number(prob_val[i])
+     //   console.log(weighted_sum)
+     //   console.log(i)
+     //   console.log(random)
+        
         if(random<=weighted_sum){
             return i
         }
